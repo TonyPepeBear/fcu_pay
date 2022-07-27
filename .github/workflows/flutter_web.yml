@@ -1,0 +1,28 @@
+name: flutter web
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: stable
+
+      - name: build
+        run: |
+          flutter pub get
+          flutter build web --web-renderer html
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        if: github.event_name != 'pull_request'
+        with:
+          branch: gh-pages
+          folder: ./fsbfront/build/web
