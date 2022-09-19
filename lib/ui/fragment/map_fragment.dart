@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 
 class MapFragment extends StatefulWidget {
   const MapFragment({Key? key}) : super(key: key);
@@ -8,14 +10,25 @@ class MapFragment extends StatefulWidget {
 }
 
 class _MapFragmentState extends State<MapFragment> {
-  int counter = 0;
-
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Image.asset("assets/images/FCU_MAP.jpg"),
-      ]),
+    return FlutterMap(
+      options: MapOptions(
+        center: LatLng(24.1796579263865, 120.64819624500039),
+        zoom: 15.2,
+      ),
+      nonRotatedChildren: [
+        AttributionWidget.defaultWidget(
+          source: 'OpenStreetMap contributors',
+          onSourceTapped: null,
+        ),
+      ],
+      children: [
+        TileLayer(
+          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          userAgentPackageName: 'com.example.app',
+        ),
+      ],
     );
   }
 }
