@@ -1,3 +1,4 @@
+import 'package:fengchiabi/ui/fragment/info_fragment.dart';
 import 'package:fengchiabi/ui/fragment/map_fragment.dart';
 import 'package:fengchiabi/ui/fragment/setting_fragment.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,7 @@ List<BottomItem> bottomItems = [
   const BottomItem(
     icon: Icon(Icons.info_outline),
     label: "Info",
-    page: Text("Info"),
+    page: InfoFragment(),
   ),
   const BottomItem(
     icon: Icon(Icons.settings),
@@ -68,6 +69,5 @@ class BottomItem {
   final Icon icon;
   final Widget page;
 
-  const BottomItem(
-      {required this.label, required this.icon, required this.page});
+  const BottomItem({required this.label, required this.icon, required this.page});
 }
