@@ -1,16 +1,15 @@
 import 'package:fengchiabi/ui/app_route_util.dart';
-import 'package:fengchiabi/ui/fragment/map_fragment.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class WalletPage extends StatefulWidget {
+  const WalletPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<WalletPage> createState() => _WalletPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int pageIndex = 0;
+class _WalletPageState extends State<WalletPage> {
+  int pageIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: const Center(
-        child: MapFragment(),
+        child: Text("Wallet"),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -34,6 +33,7 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             Navigator.pushAndRemoveUntil(
                 context, getPageRouteWithBottomNavIndex(num), (route) => false);
+            pageIndex = num;
           });
         },
         items: bottomItems.map((item) {
@@ -46,4 +46,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

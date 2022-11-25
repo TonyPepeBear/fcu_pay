@@ -1,16 +1,16 @@
 import 'package:fengchiabi/ui/app_route_util.dart';
-import 'package:fengchiabi/ui/fragment/map_fragment.dart';
+import 'package:fengchiabi/ui/fragment/setting_fragment.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class SettingPage extends StatefulWidget {
+  const SettingPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<SettingPage> createState() => _SettingPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int pageIndex = 0;
+class _SettingPageState extends State<SettingPage> {
+  int pageIndex = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: const Center(
-        child: MapFragment(),
+        child: SettingFragment(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -46,4 +46,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
