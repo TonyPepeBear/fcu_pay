@@ -17,7 +17,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("FCU Pay"),
+        title: Row(
+          children: const [
+            Text("FCU Pay"),
+            Spacer(),
+            Text("\$ 000"),
+          ],
+        ),
       ),
       body: Center(
         child: bottomItems[pageIndex].page,
@@ -69,5 +75,6 @@ class BottomItem {
   final Icon icon;
   final Widget page;
 
-  const BottomItem({required this.label, required this.icon, required this.page});
+  const BottomItem(
+      {required this.label, required this.icon, required this.page});
 }
