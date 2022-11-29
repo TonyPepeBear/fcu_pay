@@ -1,15 +1,10 @@
 import 'package:fengchiabi/ui/fragment/mission_fragment.dart';
 import 'package:flutter/material.dart';
 
-class InfoFragment extends StatefulWidget {
+import '../page/app_page.dart';
+
+class InfoFragment extends StatelessWidget {
   const InfoFragment({Key? key}) : super(key: key);
-
-  @override
-  State<InfoFragment> createState() => _InfoFragmentState();
-}
-
-class _InfoFragmentState extends State<InfoFragment> {
-  int showingChile = SHOW_INFO;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +16,12 @@ class _InfoFragmentState extends State<InfoFragment> {
     List<Widget> widgets = [
       ElevatedButton(
         onPressed: () {
-          setState(() {
-            showingChile = SHOW_MISSION;
-          });
+          var route = PageRouteBuilder(
+              pageBuilder: (context, a1, a2) =>
+                  AppPage(pageIndex: 2, child: const MissionFragment()),
+              transitionDuration: Duration.zero,
+              reverseTransitionDuration: Duration.zero);
+          Navigator.of(context).push(route);
         },
         style: buttonStyle,
         child: const Text("任務"),
@@ -40,18 +38,6 @@ class _InfoFragmentState extends State<InfoFragment> {
       ),
     ];
 
-    if (showingChile == SHOW_MISSION) {
-      return WillPopScope(
-        child: const MissionFragment(),
-        onWillPop: () async {
-          setState(() {
-            showingChile = SHOW_INFO;
-          });
-          return false;
-        },
-      );
-    }
-
     return Center(
       child: ListView.separated(
         shrinkWrap: true,
@@ -64,6 +50,3 @@ class _InfoFragmentState extends State<InfoFragment> {
     );
   }
 }
-
-const int SHOW_INFO = 0;
-const int SHOW_MISSION = 1;

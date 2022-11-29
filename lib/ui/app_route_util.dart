@@ -1,6 +1,6 @@
+import 'package:fengchiabi/ui/fragment/info_fragment.dart';
 import 'package:fengchiabi/ui/page/app_page.dart';
 import 'package:fengchiabi/ui/fragment/map_fragment.dart';
-import 'package:fengchiabi/ui/fragment/mission_fragment.dart';
 import 'package:fengchiabi/ui/fragment/setting_fragment.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ Route getPageRouteWithBottomNavIndex(int i) {
       child = const Text("Wallet");
       break;
     case 2:
-      child = const MissionFragment();
+      child = const InfoFragment();
       break;
     case 3:
       child = const SettingFragment();
