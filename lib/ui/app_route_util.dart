@@ -1,27 +1,27 @@
-import 'package:fengchiabi/ui/page/home_page.dart';
-import 'package:fengchiabi/ui/page/mission_page.dart';
-import 'package:fengchiabi/ui/page/setting_page.dart';
-import 'package:fengchiabi/ui/page/wallet_page.dart';
+import 'package:fengchiabi/ui/page/app_page.dart';
+import 'package:fengchiabi/ui/fragment/map_fragment.dart';
+import 'package:fengchiabi/ui/fragment/mission_fragment.dart';
+import 'package:fengchiabi/ui/fragment/setting_fragment.dart';
 import 'package:flutter/material.dart';
 
 Route getPageRouteWithBottomNavIndex(int i) {
-  Widget w = const HomePage();
+  late Widget child;
   switch (i) {
     case 1:
-      w = const WalletPage();
+      child = const Text("Wallet");
       break;
     case 2:
-      w = const MissionPage();
+      child = const MissionFragment();
       break;
     case 3:
-      w = const SettingPage();
+      child = const SettingFragment();
       break;
     default:
-      w = const HomePage();
+      child = const MapFragment();
       break;
   }
   return PageRouteBuilder(
-      pageBuilder: (context, a1, a2) => w,
+      pageBuilder: (context, a1, a2) => AppPage(pageIndex: i, child: child),
       transitionDuration: Duration.zero,
       reverseTransitionDuration: Duration.zero);
 }

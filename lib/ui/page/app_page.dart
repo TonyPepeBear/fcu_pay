@@ -1,16 +1,12 @@
 import 'package:fengchiabi/ui/app_route_util.dart';
-import 'package:fengchiabi/ui/fragment/map_fragment.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  int pageIndex = 0;
+// ignore: must_be_immutable
+class AppPage extends StatelessWidget {
+  AppPage({Key? key, required this.child, required this.pageIndex})
+      : super(key: key);
+  Widget child;
+  int pageIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +20,13 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: const Center(
-        child: MapFragment(),
-      ),
+      body: child,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: pageIndex,
         onTap: (int num) {
-          setState(() {
-            Navigator.pushAndRemoveUntil(
-                context, getPageRouteWithBottomNavIndex(num), (route) => false);
-          });
+          Navigator.pushAndRemoveUntil(
+              context, getPageRouteWithBottomNavIndex(num), (route) => false);
         },
         items: bottomItems.map((item) {
           return BottomNavigationBarItem(
@@ -46,4 +38,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

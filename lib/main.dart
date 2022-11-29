@@ -1,4 +1,5 @@
-import 'package:fengchiabi/ui/page/home_page.dart';
+import 'package:fengchiabi/ui/page/app_page.dart';
+import 'package:fengchiabi/ui/fragment/map_fragment.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,8 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: MaterialColor(0xFFD79CA2, themeColor),
       ),
-      home: const HomePage(),
-    );
+        home: AppPage(pageIndex: 0, child: const MapFragment()));
   }
 }
 
