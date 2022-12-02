@@ -1,4 +1,5 @@
 import 'package:fengchiabi/ui/fragment/mission_fragment.dart';
+import 'package:fengchiabi/ui/fragment/service_exchange/service_exchange_fragment.dart';
 import 'package:flutter/material.dart';
 
 import '../page/app_page.dart';
@@ -32,7 +33,14 @@ class InfoFragment extends StatelessWidget {
         child: const Text("合作商家"),
       ),
       ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          var route = PageRouteBuilder(
+              pageBuilder: (context, a1, a2) =>
+                  AppPage(pageIndex: 2, child: const ServiceExchangeFragment()),
+              transitionDuration: Duration.zero,
+              reverseTransitionDuration: Duration.zero);
+          Navigator.of(context).push(route);
+        },
         style: buttonStyle,
         child: const Text("服務交換"),
       ),
