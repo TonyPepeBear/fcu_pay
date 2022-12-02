@@ -1,4 +1,5 @@
 import 'package:fengchiabi/ui/fragment/info_fragment.dart';
+import 'package:fengchiabi/ui/fragment/wallte_fragment.dart';
 import 'package:fengchiabi/ui/page/app_page.dart';
 import 'package:fengchiabi/ui/fragment/map_fragment.dart';
 import 'package:fengchiabi/ui/fragment/setting_fragment.dart';
@@ -8,7 +9,7 @@ Route getPageRouteWithBottomNavIndex(int i) {
   late Widget child;
   switch (i) {
     case 1:
-      child = const Text("Wallet");
+      child = const WalletFragment();
       break;
     case 2:
       child = const InfoFragment();

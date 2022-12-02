@@ -1,8 +1,7 @@
-import 'package:fengchiabi/ui/page/login_page.dart';
 import 'package:flutter/material.dart';
 
-class SettingFragment extends StatelessWidget {
-  const SettingFragment({Key? key}) : super(key: key);
+class WalletFragment extends StatelessWidget {
+  const WalletFragment({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,27 +12,14 @@ class SettingFragment extends StatelessWidget {
 
     List<Widget> widgets = [
       ElevatedButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const LoginPage()));
-        },
+        onPressed: () {},
         style: buttonStyle,
-        child: const Text("登入"),
+        child: const Text("付款"),
       ),
       ElevatedButton(
         onPressed: () {},
         style: buttonStyle,
-        child: const Text("常用問答"),
-      ),
-      ElevatedButton(
-        onPressed: () {},
-        style: buttonStyle,
-        child: const Text("問題回報"),
-      ),
-      ElevatedButton(
-        onPressed: () {},
-        style: buttonStyle,
-        child: const Text("使用者名稱"),
+        child: const Text("交易記錄"),
       ),
     ];
 
