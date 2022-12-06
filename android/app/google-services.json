@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "260226399516",
+    "project_id": "fcupay-454e8",
+    "storage_bucket": "fcupay-454e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260226399516:android:6a5f3380053410ad858ed9",
+        "android_client_info": {
+          "package_name": "com.tonypepe.fengchiabi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260226399516-8b9a2epqbpea8bv3qfrue4v45rhmrcpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8IMbyoyRWnJdGoRM_RBeAh4NCiPwDDsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260226399516-8b9a2epqbpea8bv3qfrue4v45rhmrcpn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "260226399516-raocv3nt1v39cvnu0eqohqu01vk9set5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tonypepe.fengchiabi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
-import 'package:fengchiabi/ui/page/app_page.dart';
 import 'package:fengchiabi/ui/fragment/map_fragment.dart';
+import 'package:fengchiabi/ui/page/app_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: MaterialColor(0xFFD79CA2, themeColor),
-      ),
-        home: AppPage(pageIndex: 0, child: const MapFragment()));
+    return MultiProvider(
+      providers: [Provider(create: (_) => 0)], // todo: add provider
+      child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: MaterialColor(0xFFD79CA2, themeColor),
+          ),
+          home: AppPage(pageIndex: 0, child: const MapFragment())),
+    );
   }
 }
 
