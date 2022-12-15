@@ -1,4 +1,7 @@
+import 'package:fengchiabi/ui/fragment/service_exchange/service_list_fragment.dart';
 import 'package:flutter/material.dart';
+
+import '../../page/app_page.dart';
 
 class ServiceExchangeFragment extends StatelessWidget {
   const ServiceExchangeFragment({Key? key}) : super(key: key);
@@ -12,7 +15,14 @@ class ServiceExchangeFragment extends StatelessWidget {
 
     List<Widget> widgets = [
       ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          var route = PageRouteBuilder(
+              pageBuilder: (context, a1, a2) =>
+                  AppPage(pageIndex: 2, child: const ServiceListFragment()),
+              transitionDuration: Duration.zero,
+              reverseTransitionDuration: Duration.zero);
+          Navigator.of(context).push(route);
+        },
         style: buttonStyle,
         child: const Text("問題列表"),
       ),

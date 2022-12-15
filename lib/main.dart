@@ -3,6 +3,8 @@ import 'package:fengchiabi/ui/page/app_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'data/service_model.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,8 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [Provider(create: (_) => 0)], // todo: add provider
+      providers: [ChangeNotifierProvider(create: (_) => ServiceModel())],
       child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: MaterialColor(0xFFD79CA2, themeColor),
