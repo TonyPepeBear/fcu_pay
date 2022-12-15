@@ -44,19 +44,31 @@ class ServiceListFragment extends StatelessWidget {
         ),
         const Divider(thickness: 4),
         Expanded(
-          child: ListView.separated(
-            itemCount: serviceList.length,
-            itemBuilder: (context, i) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
+          child: Builder(builder: (context) {
+            if (serviceList.isEmpty) {
+              return const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Text(
-                  serviceList[i].title,
-                  style: const TextStyle(fontSize: 18),
+                  "尚無問題",
+                  style: TextStyle(fontSize: 18),
+                  textAlign: TextAlign.center,
                 ),
               );
-            },
-            separatorBuilder: (_, __) => const Divider(),
-          ),
+            }
+            return ListView.separated(
+              itemCount: serviceList.length,
+              itemBuilder: (context, i) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    serviceList[i].title,
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                );
+              },
+              separatorBuilder: (_, __) => const Divider(),
+            );
+          }),
         ),
       ],
     );
